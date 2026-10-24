@@ -1,0 +1,23 @@
+{
+  "_note": "Human-assigned labels, written after reading each topic's top words, relevant words and representative documents (see docs/topic_interpretation.md). Re-running the pipeline with different settings can renumber topics - re-check these afterwards.",
+  "variational": {
+    "0": "Interest rates & monetary policy",
+    "1": "Coffee export quotas (ICO)",
+    "2": "Gold mining & ore reserves",
+    "3": "Gulf tanker crisis & crude oil",
+    "4": "Sugar & commodity output (mixed with OPEC)",
+    "5": "Ports, shipping & labour strikes",
+    "6": "US-Japan trade policy",
+    "7": "Shares, offers & gold investment"
+  },
+  "gibbs": {
+    "0": "OPEC & crude oil production",
+    "1": "General market commentary",
+    "2": "International trade & government",
+    "3": "Interest rates & banking",
+    "4": "Gold mining & ports (mixed)",
+    "5": "Sugar trade & EC intervention",
+    "6": "Coffee export quotas (ICO)",
+    "7": "Corporate acquisitions"
+  }
+}
