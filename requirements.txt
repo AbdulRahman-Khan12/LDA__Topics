@@ -1,0 +1,20 @@
+# LDA__Topics - dependencies
+#
+# The app only reads committed artefacts; spaCy is needed to re-run the
+# pipeline and for the "Try your text" tab (which falls back to a regex
+# tokenizer if spaCy is missing).
+
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+scikit-learn>=1.3
+streamlit>=1.49
+altair>=5.0
+
+# Preprocessing (lemmatisation + POS filtering). The model is pinned by URL so
+# Streamlit Community Cloud can install it without `spacy download`.
+spacy>=3.7,<4.0
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+
+# Only to rebuild the frozen corpus (scripts/build_corpus.py) - not needed otherwise.
+# nltk>=3.8

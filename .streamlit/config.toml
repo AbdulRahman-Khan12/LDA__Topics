@@ -1,0 +1,11 @@
+[theme]
+# Deep blue, matching topic 0 in the charts; everything else stays neutral
+# so the topic colours carry the meaning.
+primaryColor = "#2E5EAA"
+backgroundColor = "#F8F8FB"
+secondaryBackgroundColor = "#ECEDF3"
+textColor = "#1B1F2E"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
