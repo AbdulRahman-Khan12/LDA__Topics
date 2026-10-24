@@ -162,8 +162,9 @@ with tabs[1]:
                             f"'{row.dominant_category}'</div>", unsafe_allow_html=True)
                 st.altair_chart(alt.Chart(frame).mark_bar(color=PALETTE[k]).encode(
                     x=alt.X("p:Q", title="P(word | topic)"),
-                    y=alt.Y("word:N", sort=alt.SortField("rank"), title=None),
-                    tooltip=["word", alt.Tooltip("p:Q", format=".4f")]).properties(height=250),
+                    y=alt.Y("word:N", sort=alt.SortField("rank"), title=None,
+                            axis=alt.Axis(labelOverlap=False, labelLimit=140)),
+                    tooltip=["word", alt.Tooltip("p:Q", format=".4f")]).properties(height=290),
                     width="stretch")
                 reps = row.representative_docs.split()
                 st.markdown("Representative: " + " · ".join(
@@ -211,7 +212,10 @@ with tabs[3]:
         doc = D["corpus"].loc[doc_id]
         st.markdown(f"<div class='doc'><b>{html.escape(doc.title)}</b><br>{html.escape(doc.text)}</div>",
                     unsafe_allow_html=True)
-        if doc_id in D["assign"]:
+        if model != "gibbs":
+            st.caption("Switch the model to *Collapsed Gibbs sampling* in the sidebar to see the topic the "
+                       "sampler assigned to every word of this document.")
+        elif doc_id in D["assign"]:
             a = D["assign"][doc_id]
             st.markdown("**Gibbs sampler's topic for every word** (final sweep)")
             st.markdown(" ".join(f"<span class='tok' style='background:{PALETTE[z]}' title='T{z}'>"
